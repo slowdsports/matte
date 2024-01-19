@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/megaaxmg/maindota2.co/matte/
+    - /bin/cp -R * $DEPLOYPATH
+    #- /bin/rsync -a --exclude 'conn.php' public/ $DEPLOYPATH
