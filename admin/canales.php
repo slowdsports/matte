@@ -25,15 +25,13 @@
             <!-- end page title -->
 
             <?php
-            $consultaSQL = "SELECT canales.canalId, canales.canalNombre, canales.epg, canales.canalImg, canales.canalCategoria, fuentes.fuenteId, fuentes.fuenteNombre, fuentes.canal, fuentes.canalUrl, fuentes.key, fuentes.key2, fuentes.pais, fuentes.tipo, categorias.categoriaNombre
-            FROM canales
-            INNER JOIN fuentes ON canales.canalId = fuentes.canal
+            $consultaSQL = "SELECT * FROM canales
             INNER JOIN categorias ON canales.canalCategoria = categorias.categoriaId";
             if (isset($_GET['agregar'])) {
                 include('inc/componentes/canales/agregar.php');
             } elseif (isset($_GET['editar'])) {
                 $idEditar = mysqli_real_escape_string($conn, $_GET['editar']);
-                $consultaSQL .= " WHERE fuenteId = '$idEditar'";
+                $consultaSQL .= " WHERE canalId = '$idEditar'";
                 $canales = mysqli_query($conn, $consultaSQL);
                 $result = mysqli_fetch_array($canales);
                 include('inc/componentes/canales/editar.php');
