@@ -1,9 +1,9 @@
 <div class="header-large-title">
     <h1 class="title">
-        Mega Deportes App
+        Mega Deportes App (Beta)
     </h1>
     <h4 class="subtitle">
-        ¡Bienvenido!
+        ¡Bienvenido/a!
     </h4>
 </div>
 <!-- Slider -->
