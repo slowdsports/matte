@@ -9,8 +9,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#000000">
     <title>Mega Deportes App</title>
-    <meta name="description" content="iRaffle TV App">
-    <meta name="keywords" content="Deportes y televisión premium en vivo" />
+    <meta name="description" content="Mega Deportes TV App">
+    <meta name="keywords" content="Deportes y televisi贸n premium en vivo" />
     <link rel="icon" type="image/png" href="../assets/img/favicon.png" sizes="32x32">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicon.png">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -57,7 +57,7 @@
             </a>
         </div>
         <div class="pageTitle">
-            Televisión
+            Televisi贸n
         </div>
         <div class="right">
             <div id="category-select" class="dropdown">
@@ -96,7 +96,7 @@
             </a>
         </div>
         <div class="pageTitle">
-            iRaffle TV
+            Mega Deportes TV
         </div>
         <div class="right">
             <div class="custom-control custom-switch">
