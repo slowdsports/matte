@@ -13,14 +13,16 @@ if (isset($country) && $country == "ES" || strpos($timezone, "rope")) {
     <h2>Star+ <small>Eventos Programados</small></h2>
     <div class="wide-block pt-2 pb-2">
         <div id="eventos" class="row">
-<script src="inc/eventos/horario.js"></script>
-<script>
-    <?php include_once("https://maindota2.co/json/datos.json"); ?>
-    document.addEventListener("DOMContentLoaded", function () {
-        guardaHorario();
+            <!-- <script src="inc/eventos/star.js"></script> -->
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    // Eliminar container
+                    var basuraContain = document.getElementById('appCapsule');
+                    basuraContain.classList.remove("container");
                     var jsonUrl = "https://maindota2.co/json/datos.json";
                     var eventosContainer = document.getElementById("eventos");
 
+                    // Sortear
                     function compararStatus(a, b) {
                         var statusOrden = {
                             "EN VIVO": 0,
@@ -32,6 +34,15 @@ if (isset($country) && $country == "ES" || strpos($timezone, "rope")) {
                             return -1;
                         } else if (b.status in statusOrden) {
                             return 1;
+                        } else if (a.status.match(/^\d{2}:\d{2}$/) && b.status.match(/^\d{2}:\d{2}$/)) {
+                            // Ambos están en formato HH:MM
+                            var [aHours, aMinutes] = a.status.split(':').map(Number);
+                            var [bHours, bMinutes] = b.status.split(':').map(Number);
+                            if (aHours !== bHours) {
+                                return aHours - bHours;
+                            } else {
+                                return aMinutes - bMinutes;
+                            }
                         } else {
                             return 0;
                         }
@@ -45,11 +56,14 @@ if (isset($country) && $country == "ES" || strpos($timezone, "rope")) {
                         var parteDespreciable = "/embed/eventos/?r=";
                         var urlSinParteDespreciable = url.replace(parteDespreciable, "");
                         var desencriptada = atob(urlSinParteDespreciable);
+                        // Intenta reemplazar el primer regex
                         if (/https:\/\/\S*\/star_jwp\.html\?get=/.test(desencriptada)) {
                             desencriptada = desencriptada.replace(/https:\/\/\S*\/star_jwp\.html\?get=/, "");
                         } else if (/^https:\/\/cdn\.sfndeportes\.net\/star_wspp\?get=/.test(desencriptada)) {
+                            // Si el primer regex no coincide, intenta el segundo regex
                             desencriptada = desencriptada.replace(/^https:\/\/cdn\.sfndeportes\.net\/star_wspp\?get=/, "");
                         }
+                        //console.log(desencriptada)
 
                         return desencriptada;
                     }
@@ -93,7 +107,6 @@ if (isset($country) && $country == "ES" || strpos($timezone, "rope")) {
                         var contenidoExtra = "";
                         var contenidoIcon = "";
                         var contenidoFlash = "";
-                        var contenidoColor = "";
 
                         if (evento.status === "EN VIVO") {
                             contenidoExtra = 'En Vivo';
@@ -110,8 +123,49 @@ if (isset($country) && $country == "ES" || strpos($timezone, "rope")) {
                             contenidoColor = "success";
                         }
 
+                        var $remaining = "";
+
+                        if (evento.status.includes(":")) {
+                            var eventTime = new Date();
+                            var eventParts = evento.status.split(":");
+                            eventTime.setHours(parseInt(eventParts[0], 10));
+                            eventTime.setMinutes(parseInt(eventParts[1], 10));
+                            eventTime.setSeconds(0);
+
+                            function updateCountdown() {
+                                var now = new Date();
+                                var timeDiff = eventTime - now;
+                                var hours = Math.floor(timeDiff / (1000 * 60 * 60));
+                                var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                                var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+                                card.innerHTML = `
+                                <a href="?p=tv&r=${urlEncriptada}&title=${evento.title}" aria-label="${evento.title}">
+                                    <div class="card product-card">
+                                        <div class="card-body">
+                                            <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/${evento.img}/scale?width=900&aspectRatio=1.78&format=jpeg" class="image" alt="${evento.league}">
+                                            <h2 class="title">
+                                                ${evento.title}
+                                            </h2>
+                                            <div class="price">
+                                                <ion-icon class='${contenidoFlash}' name='${contenidoIcon}'></ion-icon>
+                                                ${hours}h ${minutes}m ${seconds}s
+                                            </div>
+                                            <a href="?p=tv&r=${urlEncriptada}&title=${evento.title}" aria-label="${evento.league}" class="btn btn-sm btn-${contenidoColor} btn-block">
+                                                ${contenidoExtra}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </a>`;
+                                setTimeout(updateCountdown, 1000);
+                            }
+
+                            updateCountdown();
+                        } else {
+                            $remaining = `${evento.status}`;
+                        }
+
                         card.innerHTML = `
-                        <a href="?p=tv&r=${urlEncriptada}&title=${evento.title}" aria-label="${evento.league}">
+                        <a href="?p=tv&r=${urlEncriptada}&title=${evento.title}" aria-label="${evento.league}">                        
                             <div class="card product-card">
                                 <div class="card-body">
                                     <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/${evento.img}/scale?width=900&aspectRatio=1.78&format=jpeg" class="image" alt="${evento.league}">
@@ -123,7 +177,7 @@ if (isset($country) && $country == "ES" || strpos($timezone, "rope")) {
                                     </p>
                                     <a href="?p=tv&r=${urlEncriptada}&title=${evento.title}" aria-label="${evento.league}" class="btn btn-sm btn-${contenidoColor} btn-block">
                                         <ion-icon class='${contenidoFlash}' name='${contenidoIcon}'></ion-icon>
-                                        ${contenidoExtra}
+                                        ${evento.status}
                                     </a>
                                 </div>
                             </div>
