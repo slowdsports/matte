@@ -492,9 +492,9 @@ function AddtoHome(time, once) {
 var iconFooter = document.getElementById('iconFooter');
 function cambiarFuenteImagen(modo) {
     if (modo === 'oscuro') {
-        iconFooter.src = '../assets/img/logow.png';
+        iconFooter.src = 'assets/img/logow.png';
     } else {
-        iconFooter.src = '../assets/img/logob.png';
+        iconFooter.src = 'assets/img/logob.png';
     }
 }
 function cambiarFuentesImagenes(modo) {

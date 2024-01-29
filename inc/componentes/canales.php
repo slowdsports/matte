@@ -8,7 +8,7 @@
                         <div class="card-body">
                             <center>
                                 <img width="48px" src="https://i.ibb.co/w0qg9JF/trans.png"
-                                    style="background-image: url('../assets/img/tv.svg'); background-size: contain; background-repeat: no-repeat;"
+                                    style="background-image: url('assets/img/tv.svg'); background-size: contain; background-repeat: no-repeat;"
                                     class="image" alt="product image">
                                 <h2 class="title text-center">
                                     Canales TDT </h2>
@@ -50,7 +50,7 @@
                                         (<?= strtoupper($pais) ?>)
                                     </h6>
                                         <img width="48px" src="https://i.ibb.co/w0qg9JF/trans.png"
-                                            style="background-image: url('../assets/img/canales/<?= $canalImg ?>.png'); background-size: contain; background-repeat: no-repeat;"
+                                            style="background-image: url('assets/img/canales/<?= $canalImg ?>.png'); background-size: contain; background-repeat: no-repeat;"
                                             class="image" alt="product image" />
                                         <h2 class="title text-center">
                                             <?= $canalNombre ?>
