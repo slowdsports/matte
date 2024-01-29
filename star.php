@@ -128,6 +128,8 @@ if (isset($country) && $country == "ES" || strpos($timezone, "rope")) {
                         </a>`;
 
                         return card;
+                         guardaHorario();
+                        dT();
                     }
 
                     fetch(jsonUrl)
