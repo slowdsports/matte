@@ -14,6 +14,7 @@ if (isset($country) && $country == "ES" || strpos($timezone, "rope")) {
     <div class="wide-block pt-2 pb-2">
         <div id="eventos" class="row">
             <!-- <script src="inc/eventos/star.js"></script> -->
+            <script src="https://megadeportestv2.com/horario.js?v"></script>
             <script>
                 document.addEventListener("DOMContentLoaded", function () {
                     var jsonUrl = "https://maindota2.co/json/datos.json";
@@ -43,11 +44,18 @@ if (isset($country) && $country == "ES" || strpos($timezone, "rope")) {
                         var parteDespreciable = "/embed/eventos/?r=";
                         var urlSinParteDespreciable = url.replace(parteDespreciable, "");
                         var desencriptada = atob(urlSinParteDespreciable);
+
                         if (/https:\/\/\S*\/star_jwp\.html\?get=/.test(desencriptada)) {
                             desencriptada = desencriptada.replace(/https:\/\/\S*\/star_jwp\.html\?get=/, "");
                         } else if (/^https:\/\/cdn\.sfndeportes\.net\/star_wspp\?get=/.test(desencriptada)) {
                             desencriptada = desencriptada.replace(/^https:\/\/cdn\.sfndeportes\.net\/star_wspp\?get=/, "");
                         }
+
+                        // Llamada a la función guardaHorario
+                        guardaHorario();
+
+                        // Llamada a la función dT
+                        dT();
 
                         return desencriptada;
                     }
