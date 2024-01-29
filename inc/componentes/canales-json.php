@@ -8,7 +8,7 @@
                         <div class="card-body">
                             <center>
                                 <img width="48px" src="https://i.ibb.co/w0qg9JF/trans.png"
-                                    style="background-image: url('../assets/img/tv.svg'); background-size: contain; background-repeat: no-repeat;"
+                                    style="background-image: url('assets/img/tv.svg'); background-size: contain; background-repeat: no-repeat;"
                                     class="image" alt="product image">
                                 <h2 class="title text-center">
                                     Canales TDT </h2>
@@ -18,16 +18,26 @@
                 </a>
             </div>
             <?php
-            function mostrarCanales($query)
+            function mostrarCanalesFromJson($jsonData, $categoriaFiltro = null, $limit = null)
             {
-                global $conn;
-                $channels = mysqli_query($conn, $query);
-                while ($result = mysqli_fetch_assoc($channels)) {
-                    $canalId = $result['canalId'];
-                    $fuenteId = $result['fuenteId'];
-                    $canalImg = $result['canalImg'];
-                    $canalNombre = $result['fuenteNombre'];
-                    $canalCategoria = $result['canalCategoria'];
+                $canales = json_decode($jsonData, true);
+                $count = 0;
+                foreach ($canales as $canal) {
+                    if ($categoriaFiltro && $canal['categoriaNombre'] !== $categoriaFiltro) {
+                        continue;
+                    }
+
+                    // Verificar el límite de canales a mostrar
+                    if ($limit && $count >= $limit) {
+                        break;
+                    }
+
+                    $canalId = $canal['canal'];
+                    $fuenteId = $canal['fuenteId'];
+                    $canalImg = $canal['canalImg'];
+                    $canalNombre = $canal['fuenteNombre'];
+                    $canalCategoria = $canal['canalCategoria'];
+                    $pais = $canal['paisNombre'];
                     ?>
                     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mycard <?= $canalCategoria ?>"
                         data-category="<?= $canalCategoria ?>">
@@ -35,8 +45,12 @@
                             <div class="card product-card liga-card canal-card">
                                 <div class="card-body">
                                     <center>
+                                    <h6 class="card-subtitle">
+                                        <i class="flag <?= $pais ?>"></i>
+                                        (<?= strtoupper($pais) ?>)
+                                    </h6>
                                         <img width="48px" src="https://i.ibb.co/w0qg9JF/trans.png"
-                                            style="background-image: url('../assets/img/canales/<?= $canalImg ?>.png'); background-size: contain; background-repeat: no-repeat;"
+                                            style="background-image: url('assets/img/canales/<?= $canalImg ?>.png'); background-size: contain; background-repeat: no-repeat;"
                                             class="image" alt="product image" />
                                         <h2 class="title text-center">
                                             <?= $canalNombre ?>
@@ -46,25 +60,19 @@
                             </div>
                         </a>
                     </div>
-                <?php }
-            } ?>
-            <?php
+                    <?php
+                    $count++;
+                }
+            }
+            // Sección de Canales
+            // Leer datos desde el archivo JSON
+            $jsonData = file_get_contents('canales.json');
+
             // Sección de Canales
             if (isset($_GET['p']) && $_GET['p'] == "tv") {
-                $query = "SELECT canales.canalId, canales.canalNombre, canales.epg, canales.canalImg, canales.canalCategoria, fuentes.fuenteId, fuentes.fuenteNombre, fuentes.canalUrl, fuentes.key, fuentes.key2, fuentes.pais, fuentes.tipo, categorias.categoriaNombre
-        FROM canales
-        INNER JOIN fuentes ON canales.canalId = fuentes.canal
-        INNER JOIN categorias ON canales.canalCategoria = categorias.categoriaId";
-                mostrarCanales($query);
+                mostrarCanalesFromJson($jsonData);
             } else {
-                $query = "SELECT canales.canalId, canales.canalNombre, canales.epg, canales.canalImg, canales.canalCategoria, fuentes.fuenteId, fuentes.fuenteNombre, fuentes.canalUrl, fuentes.key, fuentes.key2, fuentes.pais, fuentes.tipo, categorias.categoriaNombre
-        FROM canales
-        INNER JOIN fuentes ON canales.canalId = fuentes.canal
-        INNER JOIN categorias ON canales.canalCategoria = categorias.categoriaId
-        WHERE canales.canalCategoria = 11
-        ORDER BY RAND()
-        LIMIT 18";
-                mostrarCanales($query);
+                mostrarCanalesFromJson($jsonData, 'Deportes', 18);
             }
             ?>
         </div>
