@@ -19,7 +19,7 @@ if (isset($country) && $country == "ES" || strpos($timezone, "rope")) {
                     // Eliminar container
                     var basuraContain = document.getElementById('appCapsule');
                     basuraContain.classList.remove("container");
-                    var jsonUrl = "https://corsproxy.io/?https://elcdn.realintic.online/eventos.json";
+                    var jsonUrl = "https://corsproxy.io/?https://maindota2.co/json/datos.json";
                     var eventosContainer = document.getElementById("eventos");
 
                     // Sortear
