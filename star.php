@@ -13,7 +13,7 @@ if (isset($country) && $country == "ES" || strpos($timezone, "rope")) {
     <h2>Star+ <small>Eventos Programados</small></h2>
     <div class="wide-block pt-2 pb-2">
         <div id="eventos" class="row">
-<script src="inc/eventos/horario.js?v"></script>
+<script src="inc/eventos/horario.js"></script>
 <script>
     <?php include_once("https://maindota2.co/json/datos.json"); ?>
     document.addEventListener("DOMContentLoaded", function () {
