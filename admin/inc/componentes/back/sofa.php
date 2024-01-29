@@ -54,6 +54,7 @@ if ($apiLeague):
         // Game Info
         $i++;
         $game_id = $event['id'];
+        date_default_timezone_set('Europe/Madrid');
         $date = date('Y-m-d H:i:s', $event['startTimestamp']);
         // Canales por defecto por liga
         // Liga PRO [Ecuador]
