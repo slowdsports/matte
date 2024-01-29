@@ -146,6 +146,7 @@ if (isset($country) && $country == "ES" || strpos($timezone, "rope")) {
         .catch((error) => {
             console.error("Error al obtener el JSON:", error);
         });
+                    });
             </script>
         </div>
     </div>
