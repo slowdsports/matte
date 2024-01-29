@@ -177,7 +177,7 @@ $ligaNombre = $result['ligaNombre'];
                                     // No mostramos nada
                                 } else {
                                     ?>
-                                    <li>
+                                    <li class="hidden">
                                         <a class="justify-content-center"
                                             href="?p=tv&tipo=<?= $tipo ?>&id=<?= $index ?>&s=<?= $result['hbo_url'] ?>">
                                             <i class="flag mx"></i>
