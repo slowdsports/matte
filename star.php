@@ -16,6 +16,7 @@ if (isset($country) && $country == "ES" || strpos($timezone, "rope")) {
          <script src="inc/eventos/horario.js?v"></script>
             <script>
                 document.addEventListener("DOMContentLoaded", function () {
+        guardaHorario();
     var jsonUrl = "https://maindota2.co/json/datos.json";
     var eventosContainer = document.getElementById("eventos");
 
@@ -140,8 +141,8 @@ if (isset($country) && $country == "ES" || strpos($timezone, "rope")) {
             });
 
             // Llamadas a funciones después de crear todas las tarjetas
-            guardaHorario();
-            dT();
+            //guardaHorario();
+            //dT();
         })
         .catch((error) => {
             console.error("Error al obtener el JSON:", error);
