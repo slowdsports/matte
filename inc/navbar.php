@@ -10,36 +10,41 @@
 <br><br>
 <!-- * app footer -->
 <!-- App Bottom Menu -->
-<div class="<?=$hiddeElements?> appBottomMenu">
+<div class="<?=$hiddeElements?> appBottomMenu infinite-menu">
     <a href="?p=home" class="item <?= (!isset($_GET['p']) || $_GET['p'] == "home" ? "active" : "") ?>">
         <div class="col">
             <ion-icon name="home-outline"></ion-icon>
+            <strong>Inicio</strong>
         </div>
     </a>
     <a href="?p=eventos&tipo=football" class="item <?= ($_GET['p'] == "football" ? "active" : "") ?>">
         <div class="col">
             <ion-icon name="football-outline"></ion-icon>
-        </div>
-    </a>
-    <a href="?p=notificaciones" class="item hidden <?= ($_GET['p'] == "notificaciones" ? "active" : "") ?>">
-        <div class="col">
-            <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-            <span class="badge badge-danger">5</span>
+            <strong>Fútbol</strong>
         </div>
     </a>
     <a href="?p=tv" class="item <?= ($_GET['p'] == "tv" || $_GET['p'] == "iptv"  ? "active" : "") ?>">
         <div class="col">
             <ion-icon name="tv-outline"></ion-icon>
+            <strong>TV</strong>
         </div>
     </a>
-    <a href="?p=radio" class="item <?= ($_GET['p'] == "radio" ? "active" : "") ?>">
+    <a href="?p=star" class="item <?= ($_GET['p'] == "star" ? "active" : "") ?>">
         <div class="col">
-            <ion-icon name="radio-outline"></ion-icon>
+            <ion-icon name="star-half-outline"></ion-icon>
+            <strong>Star+</strong>
         </div>
     </a>
-    <a href="?p=cuenta" class="item hidden <?= ($_GET['p'] == "cuenta" ? "active" : "") ?>">
+    <a href="?p=vix" class="item <?= ($_GET['p'] == "vix" ? "active" : "") ?>">
         <div class="col">
-            <ion-icon name="people-outline"></ion-icon>
+            <ion-icon name="logo-vue"></ion-icon>
+            <strong>Vix +</strong>
+        </div>
+    </a>
+    <a href="?p=nbalp" class="item <?= ($_GET['p'] == "nbalp" ? "active" : "") ?>">
+        <div class="col">
+            <ion-icon name="basketball-outline"></ion-icon>
+            <strong>League Pass +</strong>
         </div>
     </a>
     <a href="javascript:;" class="item" data-toggle="modal" data-target="#sidebarPanel">
