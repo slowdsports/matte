@@ -13,19 +13,14 @@ if (getTYPE == 1) {
                 ],
             },
         ],
-        height: "100vh",
+        height: "100%",
         width: "100%",
         aspectratio: "16:9",
-        stretching: "bestfit",
         mediaid: "player",
         mute: false,
         autostart: false,
         language: "es",
-        logo: {
-            file: "https://eduveel1.github.io/baleada/img/iRTVW_PLAYER.png",
-            hide: "false",
-            position: "top-left"
-        }
+        // Eliminar el bloque de logo
     });
 } else if (getTYPE == 9 || getTYPE == 12) {
     var playlistItem = {
@@ -42,27 +37,21 @@ if (getTYPE == 1) {
         ],
     };
 
-    // Verificar si getIMG existe y agregarlo a la lista de reproducción
+    // Verificar si getIMG existe y agregarlo a la lista de reproducci車n
     if (typeof getIMG !== "undefined" && getIMG !== null) {
         playlistItem.image = getIMG;
     }
-
 
     playerInstance.setup({
         playlist: [playlistItem],
         height: "100vh",
         width: "100%",
         aspectratio: "16:9",
-        stretching: "bestfit",
         mediaid: "player",
         mute: false,
         autostart: false,
         language: "es",
-        logo: {
-            file: "https://eduveel1.github.io/baleada/img/iRTVW_PLAYER.png",
-            hide: "false",
-            position: "top-left"
-        }
+        // Eliminar el bloque de logo
     });
 }
 // Preview Hack
