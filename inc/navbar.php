@@ -4,7 +4,7 @@
     <div class="footer-title">
         Copyright © Mega Deportes App <?= date('Y') ?>. Derechos Reservados.
     </div>
-    <div>Nada del contenido que se muesra en esta app es de la autoría de los creadores/administradores.</div>
+    <div>Nada del contenido que se muestra en esta app es de la autoría de los creadores/administradores.</div>
     Todo a lo que se puede acceder en la misma es fácilmente indexable en internet.
 </div>
 <br><br>
@@ -39,12 +39,6 @@
         <div class="col">
             <ion-icon name="logo-vue"></ion-icon>
             <strong>Vix +</strong>
-        </div>
-    </a>
-    <a href="?p=nbalp" class="item <?= ($_GET['p'] == "nbalp" ? "active" : "") ?>">
-        <div class="col">
-            <ion-icon name="basketball-outline"></ion-icon>
-            <strong>League Pass +</strong>
         </div>
     </a>
     <a href="javascript:;" class="item" data-toggle="modal" data-target="#sidebarPanel">
@@ -214,17 +208,7 @@
                     </li>
                     <?php } ?>
                     <li>
-                        <a href="?p=radio" class="item">
-                            <div class="icon-box bg-primary disabled">
-                                <i class="mdi mdi-radio"></i>
-                            </div>
-                            <div class="in">
-                                <div>Radio</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://t.me/+uyWDSC69RzFlNWE5" class="item">
+                        <a href="https://t.me/megadeportestv" class="item">
                             <div class="icon-box bg-primary">
                                 <ion-icon name="share-social-outline" role="img" class="md hydrated"
                                     aria-label="share social outline"></ion-icon>
