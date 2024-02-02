@@ -152,8 +152,7 @@ $ligaNombre = $result['ligaNombre'];
                                     </div>
                                 </div>
                                 <div class="channel">
-                                    <img src="assets/img/canales/<?= ($canalImg === null) ? "152x152" : $canalImg ?>.png"
-                                        alt="" />
+                                  
                                 </div>
                             </div>
                         </div>
