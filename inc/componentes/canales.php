@@ -1,22 +1,11 @@
+  
+<div class="alert alert-primary" role="alert">
+  Algunos canales estan en MANTENIMIENTO.
+</div>
 <div class="section mt-2">
     <div class="">
         <div id="channelsList" class="row">
-            <!-- Más canales IPTV -->
-            <div class="col-12 mycard 11">
-                <a href="?p=iptv">
-                    <div class="card product-card liga-card canal-card">
-                        <div class="card-body">
-                            <center>
-                                <img width="48px" src="https://i.ibb.co/w0qg9JF/trans.png"
-                                    style="background-image: url('../assets/img/tv.svg'); background-size: contain; background-repeat: no-repeat;"
-                                    class="image" alt="product image">
-                                <h2 class="title text-center">
-                                    Canales TDT </h2>
-                            </center>
-                        </div>
-                    </div>
-                </a>
-            </div>
+            <!-- M谩s canales IPTV -->
             <?php
             function mostrarCanales($query)
             {
@@ -49,7 +38,7 @@
                 <?php }
             } ?>
             <?php
-            // Sección de Canales
+            // Secci贸n de Canales
             if (isset($_GET['p']) && $_GET['p'] == "tv") {
                 $query = "SELECT canales.canalId, canales.canalNombre, canales.epg, canales.canalImg, canales.canalCategoria, fuentes.fuenteId, fuentes.fuenteNombre, fuentes.canalUrl, fuentes.key, fuentes.key2, fuentes.pais, fuentes.tipo, categorias.categoriaNombre
         FROM canales
