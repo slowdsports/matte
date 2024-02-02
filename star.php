@@ -1,16 +1,12 @@
-<?php
-if (isset($country) && $country == "ES" || strpos($timezone, "rope")) {
-    $proxy = "https://slowdus.herokuapp.com/";
-    $_SESSION['message'] = "Estás usando proxy en " . $timezone . ". Si crees que es un error, contáctanos mediante el chat";
-    $_SESSION['color'] = "28a745";
-} else {
-    $proxy = "";
-    $_SESSION['message'] = "No estás usando proxy en " . $timezone . ". Si crees que es un error, contáctanos mediante el chat";
-    $_SESSION['color'] = "28a745";
-}
-?>
+<div class="header-large-title">
+    <h1 class="title">
+        Star +
+    </h1>
+        <h4 class="subtitle">
+            <small>Eventos Programados</small>
+        </h4>
+</div>
 <div class="section full mt-2 mb-2">
-    <h2>Star+ <small>Eventos Programados</small></h2>
     <div class="wide-block pt-2 pb-2">
         <div id="eventos" class="row">
             <!-- <script src="inc/eventos/star.js"></script> -->
@@ -19,7 +15,7 @@ if (isset($country) && $country == "ES" || strpos($timezone, "rope")) {
                     // Eliminar container
                     var basuraContain = document.getElementById('appCapsule');
                     basuraContain.classList.remove("container");
-                    var jsonUrl = "https://maindota2.co/json/datos.json";
+                    var jsonUrl = "https://corsproxy.io/?https://maindota2.co/json/datos.json";
                     var eventosContainer = document.getElementById("eventos");
 
                     // Sortear
