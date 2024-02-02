@@ -11,7 +11,7 @@
                             <img width="48px" height="48px" src="assets/img/futbol.svg" class="image"
                                 alt="product image">
                             <h2 class="title text-center">Fútbol</h2>
-                            <p class="text text-center">_</p>
+                            <p class="text text-center"></p>
                         </div>
                     </div>
                 </a>
@@ -28,26 +28,8 @@
                         <div class="card-body">
                             <img width="48px" height="48px" src="assets/img/basket.svg" class="image"
                                 alt="product image">
-                            <h2 class="title text-center">Basket</h2>
-                            <p class="text text-center">_</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        <?php } ?>
-
-        <?php
-        $queryQty = mysqli_query($conn, "SELECT * FROM partidos WHERE tipo='basketball'");
-        $totalGames = mysqli_num_rows($queryQty);
-        if ($totalGames > 0) { ?>
-            <div class="col-6 col-sm-4 col-md-3 mycard">
-                <a href="?p=eventos&tipo=basketball" tabindex="2">
-                    <div class="card product-card">
-                        <div class="card-body">
-                            <img width="48px" height="48px" src="assets/img/basket.svg" class="image"
-                                alt="product image">
-                            <h2 class="title text-center">Balnplaya</h2>
-                            <p class="text text-center">_</p>
+                            <h2 class="title text-center">Básquet</h2>
+                            <p class="text text-center"></p>
                         </div>
                     </div>
                 </a>
@@ -64,7 +46,7 @@
                         <div class="card-body">
                             <img width="48px" height="48px" src="assets/img/nfl.svg" class="image" alt="product image">
                             <h2 class="title text-center">NFL</h2>
-                            <p class="text text-center">_</p>
+                            <p class="text text-center"></p>
                         </div>
                     </div>
                 </a>
@@ -77,19 +59,7 @@
                     <div class="card-body">
                         <img width="48px" height="48px" src="assets/img/tv.svg" class="image" alt="product image">
                         <h2 class="title text-center">TV</h2>
-                        <p class="text text-center">_</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-6 col-sm-4 col-md-3 mycard">
-            <a href="?p=radio">
-                <div class="card product-card">
-                    <div class="card-body">
-                        <img width="48px" height="48px" src="assets/img/radio.svg" class="image" alt="product image">
-                        <h2 class="title text-center">Radio</h2>
-                        <p class="text text-center">_</p>
+                        <p class="text text-center"></p>
                     </div>
                 </div>
             </a>
@@ -192,7 +162,7 @@
                         <div class="card-body">
                             <img width="48px" height="48px" src="assets/img/nhl.svg" class="image" alt="product image">
                             <h2 class="title text-center">NHL</h2>
-                            <p class="text text-center">_</p>
+                            <p class="text text-center"></p>
                         </div>
                     </div>
                 </a>
