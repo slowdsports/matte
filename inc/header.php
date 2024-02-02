@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="assets/css/flags.css">
     <link rel="stylesheet" href="assets/css/toastify.min.css">
     <link rel="stylesheet" href="assets/css/<?= ($_GET['p'] == "home" || !isset($_GET['p']) ? "slider" : "events" ) ?>.css">
+    <?php if (isset($_GET['p']) && $_GET["p"] == "star" ): ?>
+    <script src="assets/js/lib/horario.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <?php endif; ?>
 </head>
 <style>
     /* Estilos para botones con enfoque visual */
@@ -57,7 +61,7 @@
             </a>
         </div>
         <div class="pageTitle">
-            Televisi贸n
+            Televisión
         </div>
         <div class="right">
             <div id="category-select" class="dropdown">
