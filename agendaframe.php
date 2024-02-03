@@ -114,7 +114,7 @@
 
     .menu>li>a:before {
         content: '';
-        background-image: url(/sprite_temp.png);
+        background-image: url(https://megadeportes.xyz/sprite_temp.png);
         background-repeat: no-repeat;
         font-size: 36px;
         height: 1em;
@@ -131,6 +131,38 @@
         }
     }
 
+    .ES>a:before,
+    .laliga>a:before,
+    .laliga2>a:before,
+    .acb>a:before,
+    .copa-del-rey>a:before,
+    .liga-f>a:before
+    { background-position: 0 -38px }
+
+    .ENG>a:before,
+    .premier-league>a:before,
+    .championship>a:before,
+    .efl-cup>a:before
+    { background-position: -76px 0 }
+
+    .IT>a:before,
+    .serie-a>a:before,
+    .coppa-italia>a:before,
+    .serie-a-women>a:before
+    { background-position: 0 -114px }
+
+    .CHA>a:before,
+    .champions-league>a:before,
+    { background-position: 0 -266px }
+
+    .UE>a:before,
+    .europa-league>a:before
+    { background-position: -76px -418px}
+
+    .UEC>a:before,
+    .conference-league>a:before
+    { background-position: -38px -456px}
+
     .COL>a:before {
         background-position: 0 0
     }
@@ -139,16 +171,8 @@
         background-position: -38px 0
     }
 
-    .ES>a:before {
-        background-position: 0 -38px
-    }
-
     .PE>a:before {
         background-position: -38px -38px
-    }
-
-    .ENG>a:before {
-        background-position: -76px 0
     }
 
     .FRA>a:before {
@@ -161,10 +185,6 @@
 
     .CONNAT>a:before {
         background-position: -38px -76px
-    }
-
-    .IT>a:before {
-        background-position: 0 -114px
     }
 
     .BRA>a:before {
@@ -209,10 +229,6 @@
 
     .NBA>a:before {
         background-position: -38px -228px
-    }
-
-    .CHA>a:before {
-        background-position: 0 -266px
     }
 
     .UFC>a:before {
@@ -271,16 +287,8 @@
         background-position: -76px -380px
     }
 
-    .UE>a:before {
-        background-position: -76px -418px
-    }
-
     .ELIE>a:before {
         background-position: 0 -456px
-    }
-
-    .UEC>a:before {
-        background-position: -38px -456px
     }
 
     .NFL>a:before {
@@ -458,6 +466,7 @@
             e1.equipoId AS id_local, e1.equipoNombre AS equipo_local,
             e2.equipoId AS id_visitante, e2.equipoNombre AS equipo_visitante,
             e3.ligaNombre AS partido_liga,
+            e3.ligaPais AS liga_pais,
             f1.fuenteId AS id_canal1, f1.fuenteNombre AS nombre_canal1, f1.canal AS canal_canal1,
             p1.paisNombre AS pais_canal1,
             f2.fuenteId AS id_canal2, f2.fuenteNombre AS nombre_canal2, f2.canal AS canal_canal2,
@@ -513,6 +522,7 @@
                 $visitante = $result['equipo_visitante'];
                 $visitante_id = $result['id_visitante'];
                 $liga_id = $result['liga'];
+                $liga_pais = $result['liga_pais'];
                 $liga = $result['partido_liga'];
                 $fecha = $result['fecha_hora'];
                 $hora = substr($fecha, 11, 5);
@@ -558,8 +568,7 @@
                         $canal10_id = $result['id_canal10'];
                         $canal10_nombre = $result['nombre_canal10'];
                         ?>
-                        <li>
-                            <img width="25px" src="https://api.sofascore.app/api/v1/unique-tournament/<?= $liga_id ?>/image/dark" alt="">
+                        <li class="<?= strtolower(str_replace(" ", "-", $liga)) ?>">
                             <a href="#">
                                 <?= $liga ?>: <?= ucfirst($local) ?> vs. <?= ucfirst($visitante) ?>
                                 <span class="t"><?= $hh_1 ?>:<?= $mm_1 ?></span>
