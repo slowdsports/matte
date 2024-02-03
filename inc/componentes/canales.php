@@ -1,11 +1,12 @@
-  
-<div class="alert alert-primary" role="alert">
-  Algunos canales estan en MANTENIMIENTO.
+<div class="text-center alert alert-outline-primary alert-dismissible fade show" role="alert">
+    <h4 class="alert-title">
+        Algunos canales estan en <strong>MANTENIMIENTO</strong>.
+    </h4>
 </div>
 <div class="section mt-2">
     <div class="">
         <div id="channelsList" class="row">
-            <!-- M谩s canales IPTV -->
+            <!-- Más canales IPTV -->
             <?php
             function mostrarCanales($query)
             {
@@ -17,9 +18,10 @@
                     $canalImg = $result['canalImg'];
                     $canalNombre = $result['fuenteNombre'];
                     $canalCategoria = $result['canalCategoria'];
+                    $fuentePais = $result['pais'];
                     ?>
                     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mycard <?= $canalCategoria ?>"
-                        data-category="<?= $canalCategoria ?>">
+                        data-category="<?= $fuentePais ?>">
                         <a href="?p=tv&c=<?= $canalId ?>&f=<?= $fuenteId ?>">
                             <div class="card product-card liga-card canal-card">
                                 <div class="card-body">
@@ -38,7 +40,7 @@
                 <?php }
             } ?>
             <?php
-            // Secci贸n de Canales
+            // Sección de Canales
             if (isset($_GET['p']) && $_GET['p'] == "tv") {
                 $query = "SELECT canales.canalId, canales.canalNombre, canales.epg, canales.canalImg, canales.canalCategoria, fuentes.fuenteId, fuentes.fuenteNombre, fuentes.canalUrl, fuentes.key, fuentes.key2, fuentes.pais, fuentes.tipo, categorias.categoriaNombre
         FROM canales

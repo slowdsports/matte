@@ -71,14 +71,16 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#" data-category="all">Todo</a>
                     <?php
-                    $ccf = mysqli_query($conn, "SELECT categoriaId, categoriaNombre FROM categorias");
+                    $ccf = mysqli_query($conn, "SELECT paisId, paisCodigo FROM paises");
                     while ($rrf = mysqli_fetch_array($ccf)):
-                    $catId = $rrf['categoriaId']; $catNombre = $rrf['categoriaNombre'];
-                    $ccfn = mysqli_query($conn, "SELECT * FROM canales WHERE canalCategoria = $catId");
+                    $catId = $rrf['paisId']; $catNombre = $rrf['paisCodigo'];
+                    $ccfn = mysqli_query($conn, "SELECT * FROM fuentes WHERE pais = $catId");
                     $ttc = mysqli_num_rows($ccfn);
                     if ($ttc > 0) {
                     ?>
-                    <a class="dropdown-item" href="#" data-category="<?=$catId?>"><?=$catNombre?></a>
+                    <a class="dropdown-item" href="#" data-category="<?=$catId?>">
+                    <i class="flag <?=$catNombre?>"></i>
+                    <?=ucfirst($catNombre)?></a>
                     <?php
                     }
                     endwhile;
