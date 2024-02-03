@@ -163,20 +163,34 @@
     .conference-league>a:before
     { background-position: -38px -456px}
 
+    .ALE>a:before,
+    .bundesliga>a:before,
+    .dfb-pokal>a:before {
+        background-position: -76px -76px
+    }
+
+    .MEX>a:before,
+    .liga-mx>a:before,
+    .expansión-mx>a:before {
+        background-position: -38px 0
+    }
+
+    .FRA>a:before,
+    .ligue-1>a:before {
+        background-position: -76px -38px
+    }
+
+    .AR>a:before,
+    .copa-de-la-liga>a:before {
+        background-position: -76px -152px
+    }
+
     .COL>a:before {
         background-position: 0 0
     }
 
-    .MEX>a:before {
-        background-position: -38px 0
-    }
-
     .PE>a:before {
         background-position: -38px -38px
-    }
-
-    .FRA>a:before {
-        background-position: -76px -38px
     }
 
     .USA>a:before {
@@ -189,10 +203,6 @@
 
     .BRA>a:before {
         background-position: -38px -114px
-    }
-
-    .ALE>a:before {
-        background-position: -76px -76px
     }
 
     .POR>a:before {
@@ -213,10 +223,6 @@
 
     .EURO>a:before {
         background-position: -38px -190px
-    }
-
-    .AR>a:before {
-        background-position: -76px -152px
     }
 
     .AMERICA>a:before {
