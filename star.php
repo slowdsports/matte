@@ -43,22 +43,25 @@
 
                             // Integrar lógicas aquí
                             var url = obj['url'];
-                            url = url.replace("/embed/eventos/?r=", "")
-                            var decodedUrl = atob(url);
-                            // Hacer split en partes usando "&"
-                            var urlParts = decodedUrl.split("&");
-                            // Ordenar las partes
-                            var m3u8 = urlParts[0];
-                            // Encriptar la imagen a MD5
-                            var imagen = urlParts[1] + "&" + urlParts[2] + "&" + urlParts[3];
-                            imagen = imagen.replace("img=", "");
-                            var key1 = urlParts[4];
-                            key1 = key1.replace("key=", "")
-                            var key2 = urlParts[5];
-                            key2 = key2.replace("key2=", "");
-                            console.log(key1)
-                            // Reemplazar la URL
-                            url = btoa(m3u8) + "&img=" + imagen + "&key=" + btoa(key1) + "&key2=" + btoa(key2);
+                            if (url !== "#") {
+                                url = url.replace("/embed/eventos/?r=", "")
+                                var decodedUrl = atob(url);
+                                // Hacer split en partes usando "&"
+                                var urlParts = decodedUrl.split("&");
+                                // Ordenar las partes
+                                var m3u8 = urlParts[0];
+                                // Encriptar la imagen a MD5
+                                var imagen = urlParts[1] + "&" + urlParts[2] + "&" + urlParts[3];
+                                imagen = imagen.replace("img=", "");
+                                var key1 = urlParts[4];
+                                key1 = key1.replace("key=", "")
+                                var key2 = urlParts[5];
+                                key2 = key2.replace("key2=", "");
+                                console.log(key1)
+                                // Reemplazar la URL
+                                url = btoa(m3u8) + "&img=" + imagen + "&key=" + btoa(key1) + "&key2=" + btoa(key2);
+                            }
+                            
 
                             if (obj['status'] == "EN VIVO")
                                 content += `
