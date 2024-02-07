@@ -41,6 +41,12 @@
             <strong>Vix +</strong>
         </div>
     </a>
+    <a href="?p=nbalp" class="item <?= ($_GET['p'] == "nbalp" ? "active" : "") ?>">
+        <div class="col">
+            <ion-icon name="basketball-outline"></ion-icon>
+            <strong>LP</strong>
+        </div>
+    </a>
     <a href="javascript:;" class="item" data-toggle="modal" data-target="#sidebarPanel">
         <div class="col">
             <ion-icon name="menu-outline"></ion-icon>
