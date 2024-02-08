@@ -161,12 +161,12 @@ $ligaNombre = $result['ligaNombre'];
                         <div class="card card-body">
                             <ul class="listview link-listview">
                                 <?php
-                                if ($index == 11816830):
+                                if ($getLiga == 132):
                                 ?>
                                 <li>
-                                    <a class="justify-content-center" href="?p=tv&evento&ifr=aHR0cHM6Ly93My5tcC5sdXJhLmxpdmUvcGxheWVyL3Byb2QvdjMvYW52bG9hZC5odG1sP2tleT1leUp0SWpvZ0lrRk9WaUlzSUNKMklqb2dJbUZrYzNRd1NqUldUbFpDUzA0eWVsZ2lMQ0FpZEc5clpXNGlPaUFpWlhsS2FHSkhZMmxQYVVwSlZYcEpNVTVwU1hOSmJsSTFZME5KTmtscmNGaFdRMG81TG1WNVNuQmpNMDFwVDJsS2RGVlhTbWhOYXpscldqRkNTVlZzWkZkbGFtUnZWRzAxTUZSdWFFNU5ia3B3VDBSR2VGUnNaRFZYUTBselNXNWFjRnBEU1RaSmJVWnJZek5SZDFOcVVsZFViRnBEVXpBMGVXVnNaMmxNUTBwc1pVaEJhVTlxUlROTlJFRXlUV3BaTlU1VWEzTkpiV3hvWkVOSk5rMVVZM2ROUkZVd1RVUlZNVTlZTUM1eldXVnNZbnBNWWxjM1RsOW5NMnh6UlVkNFdWSlFOakY1YzE5WmQxaHdhV00xVlRCc2RtOHRUMWR2SWl3Z0ltRnVkbUZqYXlJNklDSnRVV0poTWs5a1oxQklVbGRXZWpkb1RtNTBUbmhOTW5KcE9ERnhUbGQ1V0NKOQ==&title=M%C3%A9xico%20vs%20Honduras">
-                                        <i class="flag mx"></i>
-                                            Vix + (Recomendado)
+                                    <a class="justify-content-center" href="?p=nbalp">
+                                        <i class="flag us"></i>
+                                            NBA League Pass
                                     </a>
                                 </li>
                                 <?php endif ?>
