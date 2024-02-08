@@ -38,13 +38,13 @@
     <a href="?p=vix" class="item <?= ($_GET['p'] == "vix" ? "active" : "") ?>">
         <div class="col">
             <ion-icon name="logo-vue"></ion-icon>
-            <strong>Vix +</strong>
+            <strong>Vix+</strong>
         </div>
     </a>
     <a href="?p=nbalp" class="item <?= ($_GET['p'] == "nbalp" ? "active" : "") ?>">
         <div class="col">
             <ion-icon name="basketball-outline"></ion-icon>
-            <strong>LP</strong>
+            <strong>NBA LP</strong>
         </div>
     </a>
     <a href="javascript:;" class="item" data-toggle="modal" data-target="#sidebarPanel">
