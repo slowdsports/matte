@@ -129,10 +129,14 @@ if ($canalTipo == 9) {
         <?php
     } else {
         // Requieren JW
-        if (strpos($canalUrl, "dazn-cdn") ||strpos($canalUrl, "livewwdazn") || strpos($canalUrl, "daznedge") || strpos($canalUrl, "director.streaming") || strpos($canalUrl, "stvacdn") || strpos($canalUrl, "izzigo.") || strpos($canalUrl, "vidgo.com")  || strpos($canalUrl, "tglmp") || strpos($canalUrl, "liveusp") || strpos($canalUrl, "live-nl-") || strpos($canalUrl, "upcbroadband") || strpos($canalUrl, "ssc-") || strpos($canalUrl, "cvatt") || strpos($canalUrl, "latamvosliveclarovideo") || strpos($canalUrl, "ssc")) {
+        if (strpos($canalUrl, "dcf-ak") ||strpos($canalUrl, "livewwdazn") || strpos($canalUrl, "edge-live02-mun.cvattv.com.ar") || strpos($canalUrl, "director.streaming") || strpos($canalUrl, "stvacdn") || strpos($canalUrl, "izzigo.") || strpos($canalUrl, "vidgo.com")  || strpos($canalUrl, "tglmp") || strpos($canalUrl, "liveusp") || strpos($canalUrl, "live-nl-") || strpos($canalUrl, "upcbroadband") || strpos($canalUrl, "ssc-") || strpos($canalUrl, "cvatt") || strpos($canalUrl, "latamvosliveclarovideo") || strpos($canalUrl, "ssc") || (strpos($canalUrl, "linear301-it-dash1-prd-ll.cdn13.skycdp.com") !== false ||
+    strpos($canalUrl, "linear302-it-dash1-prd-ll.cdn13.skycdp.com") !== false ||
+    strpos($canalUrl, "linear010-gb-dash1-prd-ak.cdn.skycdp.com") !== false ||
+    strpos($canalUrl, "linear007-gb-dash1-prd-cf.cdn.skycdp.com") !== false
+)) {
             // Vidgo Requiere Proxy
             if (strpos($canalUrl, "vidgo.com") || strpos($canalUrl, "stvacdn") || strpos($canalUrl, "izzigo.")) {
-                // Validar localización
+                // Validar localizaci贸n
                 if (isset($country) && $country !== "US") {
                     $proxy = "https://slowdus.herokuapp.com/";
                 } else {
