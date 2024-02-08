@@ -14,7 +14,7 @@
                 var x = Math.random().toString(36).substring(7);
 
                 $.ajax({
-                    url: "https://corsproxy.io/?url=https://deportestvhd.com/vix.json?" + x,
+                    url: "https://corsproxy.io/?url=https://deportestvhd2.com/vix.json?" + x,
                     //url: "datos.json?" + x,
                     type: "get",
                     success: function (arr) {
