@@ -19,7 +19,7 @@
                 var x = Math.random().toString(36).substring(7);
 
                 $.ajax({
-                    url: "/json/nba.json?" + x,
+                    url: "https://api.codetabs.com/v1/proxy/?quest=https://maindota2.co/json/nba.json?" + x,
                     //url: "datos.json?" + x,
                     type: "get",
                     success: function (arr) {
@@ -97,7 +97,7 @@
                         <div class="col-6 col-md-4 col-lg-3 evento">
                             <a>
                             <div class="card product-card">
-                                <img src="${obj['img']}" alt="${obj['title']}" class="image">
+                                <img src="https://cdn.nba.com/davinci/images/team-matchups/nba/latest/web/${obj['img']}/1920x1080.png" alt="${obj['title']}" class="image">
                                 <div class="card-body">
                                 <h2 class="title">${obj['title']}</h2>
                                 <p class="text">${obj['league']}</p>
