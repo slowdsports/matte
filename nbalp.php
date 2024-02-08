@@ -19,7 +19,7 @@
                 var x = Math.random().toString(36).substring(7);
 
                 $.ajax({
-                    url: "https://corsproxy.io/?url=https://maindota2.co/json/nba.json?" + x,
+                    url: "/json/nba.json?" + x,
                     //url: "datos.json?" + x,
                     type: "get",
                     success: function (arr) {
