@@ -129,7 +129,7 @@ if ($canalTipo == 9) {
         <?php
     } else {
         // Requieren JW
-        if (strpos($canalUrl, "dcf-ak") ||strpos($canalUrl, "livewwdazn") || strpos($canalUrl, "edge-live02-mun.cvattv.com.ar") || strpos($canalUrl, "director.streaming") || strpos($canalUrl, "stvacdn") || strpos($canalUrl, "izzigo.") || strpos($canalUrl, "vidgo.com")  || strpos($canalUrl, "tglmp") || strpos($canalUrl, "liveusp") || strpos($canalUrl, "live-nl-") || strpos($canalUrl, "upcbroadband") || strpos($canalUrl, "ssc-") || strpos($canalUrl, "cvatt") || strpos($canalUrl, "latamvosliveclarovideo") || strpos($canalUrl, "ssc") || (strpos($canalUrl, "linear301-it-dash1-prd-ll.cdn13.skycdp.com") !== false ||
+        if (strpos($canalUrl, "dcf-ak") ||strpos($canalUrl, "livewwdazn") || strpos($canalUrl, "edge-live02-mun.cvattv.com.ar") || strpos($canalUrl, "director.streaming") || strpos($canalUrl, "stvacdn") || strpos($canalUrl, "izzigo.") || strpos($canalUrl, "vidgo.com")  || strpos($canalUrl, "tglmp") || strpos($canalUrl, "liveusp") || strpos($canalUrl, "live-nl-") || strpos($canalUrl, "upcbroadband") || strpos($canalUrl, "ssc-") || strpos($canalUrl, "cvatt") || strpos($canalUrl, "latamvosliveclarovideo") || strpos($canalUrl, "peacocktv") || strpos($canalUrl, "ssc") || (strpos($canalUrl, "linear301-it-dash1-prd-ll.cdn13.skycdp.com") !== false ||
     strpos($canalUrl, "linear302-it-dash1-prd-ll.cdn13.skycdp.com") !== false ||
     strpos($canalUrl, "linear010-gb-dash1-prd-ak.cdn.skycdp.com") !== false ||
     strpos($canalUrl, "linear007-gb-dash1-prd-cf.cdn.skycdp.com") !== false
