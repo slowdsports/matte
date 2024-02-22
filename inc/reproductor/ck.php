@@ -142,7 +142,7 @@ if ($canalTipo == 9) {
                 } else {
                     $proxy = "https://slowdus.herokuapp.com/";
                 }
-                $canalUrl = $proxy . $canalUrl;
+                //$canalUrl = $proxy . $canalUrl;
             }
             // Encriptamos la URL
             $canalUrl = base64_encode($canalUrl); ?>
