@@ -4,7 +4,7 @@
 // BD
 include('inc/conn.php');
 // Play
-if (isset($_GET['p']) && $_GET['p'] == "tv" && isset($_GET['c']) || isset($_GET['evento']) || isset($_GET['r']) || isset($_GET['s']) || isset($_GET['f'])) {
+if (isset($_GET['p']) && $_GET['p'] == "tv" && isset($_GET['c']) || isset($_GET['evento']) || isset($_GET['img']) || isset($_GET['r']) || isset($_GET['s']) || isset($_GET['f']) || isset($_GET['nbalp'])) {
     include('play.php');
     exit();
 }
