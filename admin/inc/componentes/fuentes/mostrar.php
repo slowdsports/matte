@@ -2,6 +2,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
+                <a href="?p=fuentes&agregar" class="btn btn-outline-primary">+ Agregar</a>
                 <hr>
                 <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                     <thead>
@@ -21,14 +22,14 @@
                                 <td class="table-user">
                                     <img src="../assets/img/canales/<?= $result['canalImg']; ?>.png"
                                         alt="table-user" class="me-2 rounded-circle">
-                                        <?= $result['fuenteNombre']; ?>
+                                        <?= $result['fuenteNombre']; ?> (<?= $result['paisNombre']; ?>)
                                 </td>
                                 <td>
                                     <?= $result['categoriaNombre']; ?>
                                 </td>
                                 <td>
                                     <div class="btn-group mb-2">
-                                        <a href="?p=canales&editar=<?= $result['fuenteId'] ?>"
+                                        <a href="?p=fuentes&editar=<?= $result['fuenteId'] ?>"
                                             class="btn btn-outline-primary">Editar</a>
                                         <button type="button" class="btn btn-outline-danger">Borrar</button>
                                     </div>

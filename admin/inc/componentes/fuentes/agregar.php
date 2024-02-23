@@ -7,7 +7,7 @@
                 </h4>
             </div>
             <div class="card-body">
-                <form action="" method="post">
+                <form method="post">
                     <div class="row">
                         <!-- DATOS CANAL -->
                         <div class="col-lg-12">
@@ -135,7 +135,7 @@
                         <!-- PAIS -->
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="pais" class="form-label">Liga</label>
+                                <label for="pais" class="form-label">País</label>
                                 <select class="form-control select2" data-toggle="select2" id="pais" name="pais">
                                     <?php
                                     $paises_query = "SELECT paisId, paisNombre FROM paises";
@@ -167,7 +167,8 @@
                             </div>
                         </div>
                         <!-- CTA -->
-                        <button type="submit" id="agregar" name="agregar" class="btn btn-primary">Agregar</button>
+                        <button type="button" id="agregar" name="agregar" class="btn btn-primary"
+                            onclick="agregarFuente()">Agregar</button>
                     </div>
                 </form>
             </div>

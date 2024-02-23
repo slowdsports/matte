@@ -17,7 +17,7 @@
                         <?php
                         while ($result = mysqli_fetch_array($canales)):
                             ?>
-                            <tr>
+                            <tr id="canal-<?= $result['canalId'] ?>">
                                 <td class="table-user">
                                     <img src="../assets/img/canales/<?= $result['canalImg']; ?>.png"
                                         alt="table-user" class="me-2 rounded-circle">
@@ -30,7 +30,8 @@
                                     <div class="btn-group mb-2">
                                         <a href="?p=canales&editar=<?= $result['canalId'] ?>"
                                             class="btn btn-outline-primary">Editar</a>
-                                        <button type="button" class="btn btn-outline-danger">Borrar</button>
+                                        <button type="button" class="btn btn-outline-danger eliminarCanal"
+                                            data-id="<?= $result['canalId'] ?>" onclick="eliminarCanal()">Borrar</button>
                                     </div>
                                 </td>
                             </tr>

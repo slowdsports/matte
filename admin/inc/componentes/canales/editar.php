@@ -8,7 +8,7 @@
                 </h4>
             </div>
             <div class="card-body">
-                <form action="" method="post">
+                <form method="post">
                     <div class="row">
                         <?php
                         // $getCanal = $_GET['editar'];
@@ -55,7 +55,14 @@
                             </div>
                         </div>
                         <!-- CTA -->
-                        <button type="submit" id="editar" name="editar" class="btn btn-primary">Editar</button>
+                        <button type="button" id="editar" name="editar" class="btn btn-primary"
+                            onclick="editarCanal()">Editar</button>
+                        <!-- ID -->
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <input type="hidden" id="canalId" class="form-control" value="<?= $result['canalId'] ?>">
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
