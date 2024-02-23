@@ -6,11 +6,6 @@
         <small>Eventos Programados</small>
     </h4>
 </div>
-<div class="text-center alert alert-outline-danger alert-dismissible fade show" role="alert">
-    <h4 class="alert-title">
-        Esta sección está siendo <strong>DESARROLLADA</strong> por lo que puedes experimentar problemas.
-    </h4>
-</div>
 <div class="section full mt-2 mb-2">
     <div class="wide-block pt-2 pb-2">
         <div class="row" id="eventos"></div>
@@ -19,8 +14,8 @@
                 var x = Math.random().toString(36).substring(7);
 
                 $.ajax({
-                    url: "https://api.codetabs.com/v1/proxy/?quest=https://maindota2.co/json/nba.json?" + x,
-                    //url: "datos.json?" + x,
+                    //url: "https://api.codetabs.com/v1/proxy/?quest=https://maindota2.co/json/nba.json?" + x,
+                    url: "datos.json?" + x,
                     type: "get",
                     success: function (arr) {
                         // Ordenar los eventos según su status
@@ -49,21 +44,26 @@
                             // Integrar lógicas aquí
                             var url = obj['url'];
                             if (url !== "#") {
+                                var regex = /\/\/[^\/]+\/[^?]+\?(.*)/;
                                 url = url.replace("/embed/eventos/?r=", "")
                                 var decodedUrl = atob(url);
+                                console.log(decodedUrl)
+                                var replacedUrl = decodedUrl.replace(regex, "$1");
+                                //var replacedUrl = decodedUrl.replace("//conywhan.bar/lp.php?img=", "");
+                                console.log(replacedUrl)
                             }
                             
 
                             if (obj['status'] == "EN VIVO")
                                 content += `
                         <div class="col-6 col-md-4 col-lg-3 evento">
-                            <a class="disabled" href="?p=tv&evento&ifr=${url}">
+                            <a href="?p=tv&nbalp&${replacedUrl}">
                             <div class="card product-card">
                                 <img src="https://cdn.nba.com/davinci/images/team-matchups/nba/latest/web/${obj['img']}/1920x1080.png" alt="${obj['title']}" class="image">
                                 <div class="card-body">
                                 <h2 class="title">${obj['title']}</h2>
                                 <p class="text">${obj['league']}</p>
-                                <a href="?p=tv&evento&ifr=${url}" class="disabled btn btn-sm btn-light live-text btn-block">
+                                <a href="?p=tv&nbalp&${replacedUrl}" class="btn btn-sm btn-light live-text btn-block">
                                     <ion-icon class="faa-flash animated md hydrated" name="ellipse" role="img" aria-label="ellipse"></ion-icon>
                                     ${obj['status']}
                                 </a>
