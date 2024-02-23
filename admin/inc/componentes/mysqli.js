@@ -200,6 +200,92 @@ function agregarFuente() {
     xmlhttp.send("fuentes&canalExistente=" + cExistente + "&canalNombre=" + cNombre + "&canalImg=" + cImagen + "&canalCategoria=" + cCategoria + "&fuenteNombre=" + fNombre + "&fuenteUrl=" + fUrl + "&key1=" + k1 + "&key2=" + k2 + "&pais=" + fpais + "&tipo=" + ftipo);
 }
 
+function editarFuente() {
+    // Obtenemos los valores del formulario
+    var fId = document.getElementById("fuenteId").value;
+    var fNombre = document.getElementById("fuenteNombre").value;
+    var fUrl = document.getElementById("fuenteUrl").value;
+    var key1 = document.getElementById("key1").value;
+    var key2 = document.getElementById("key2").value;
+    var pais = document.getElementById("pais").value;
+    var tipo = document.getElementById("tipo").value;
+    var cPadre = document.getElementById("canalPadre").value;
+
+    // Creamos un objeto XMLHttpRequest
+    var xmlhttp = new XMLHttpRequest();
+
+    // Creamos la consulta AJAX
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            // document.getElementById("mensaje").innerHTML = this.responseText;
+            //document.getElementById("mensaje").innerHTML = "<div class='alert alert-light-info color-info'>" + this.response + "</div>";
+            // Mostramos una notificación con Toastify
+            Toastify({
+                text: "La Fuente " + fNombre + " ha sido modificada",
+                duration: 5000,
+                close: true,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                gravity: "top",
+                position: "right",
+                backgroundColor: "#198754",
+                stopOnFocus: true
+            }).showToast();
+            console.log(this.responseText);
+        }
+    };
+    xmlhttp.open("POST", "inc/componentes/back/update.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("fuentes&id=" + fId + "&fuenteNombre=" + fNombre + "&canalPadre=" + cPadre + "&fuenteUrl=" + fUrl + "&key1=" + key1 + "&key2=" + key2 + "&pais=" + pais + "&tipo=" + tipo);
+}
+
+function eliminarFuente() {
+    // Obtiene una lista de todos los botones de eliminación
+    var botonesEliminar = document.querySelectorAll('.eliminarFuente');
+
+    // Agrega un evento click a cada botón de eliminación
+    botonesEliminar.forEach(function (boton) {
+        boton.addEventListener('click', function () {
+            var elemento = boton.getAttribute('data-id');
+            console.log(elemento);
+
+            // Creamos un objeto XMLHttpRequest
+            var xmlhttp = new XMLHttpRequest();
+
+            // Creamos la consulta AJAX
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    //document.getElementById("mensaje").innerHTML = this.responseText;
+                    console.log(this.responseText);
+
+                    // Actualizamos la tabla HTML
+                    var fila = document.getElementById("fuente-" + elemento);
+                    if (fila) {
+                        fila.parentNode.removeChild(fila);
+                        // Mostramos una notificación con Toastify
+                        Toastify({
+                            text: "La fuente #" + elemento + " ha sido eliminada",
+                            duration: 5000,
+                            close: true,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "#dc3545",
+                            stopOnFocus: true
+                        }).showToast();
+                    }
+                }
+            };
+
+            xmlhttp.open("POST", "inc/componentes/back/delete.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send("fuentes&id=" + elemento);
+        });
+    });
+}
 
 
 // PARTIDOS
