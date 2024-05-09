@@ -8,6 +8,12 @@ if (!isset($_POST['filtrarLiga'])) {
     $apiLeague = $_POST['filtrarLiga'];
 }
 $i = 0;
+
+
+// Deporte General
+
+
+
 if ($apiLeague):
     // Season Info
     $apiSeason = "https://api.sofascore.com/api/v1/unique-tournament/" . $apiLeague . "/seasons";
@@ -26,6 +32,7 @@ if ($apiLeague):
     foreach ($jsonData['events'] as $event) {
         // Country Info
         $country = $event['tournament']['uniqueTournament']['category']['slug'];
+        echo "Country: " . $country;
         $country_insert = "INSERT INTO `paises`(`paisCodigo`, `paisNombre`) VALUES ('$country', '$country')";
         mysqli_query($conn, $country_insert);
         $country = $event['tournament']['uniqueTournament']['category']['slug'];
@@ -37,12 +44,26 @@ if ($apiLeague):
         $sport = $event['tournament']['uniqueTournament']['category']['sport']['slug'];
         // Volcado base de datos
         $tournament_insert = "INSERT INTO `ligas`(`ligaId`, `ligaNombre`, `ligaImg`, `ligaPais`, `season`) VALUES ($tournament_id, '$tournament_name', '$tournament_sname', '$country', '$seasonId')";
+        // Obtener y guardar la imagen de la liga si no existe
+        $ligaImgPath = "../../../../iraffle/assets/img/ligas/sf/{$tournament_id}.png";
+        if (!file_exists($ligaImgPath)) {
+            $ligaImgUrl = "https://api.sofascore.app/api/v1/unique-tournament/{$tournament_id}/image/dark";
+            $ligaImg = file_get_contents($ligaImgUrl);
+            file_put_contents($ligaImgPath, $ligaImg);
+        }
         mysqli_query($conn, $tournament_insert);
         // Teams Info
         $home_id = $event['homeTeam']['id'];
         $home_name = $event['homeTeam']['name'];
         $home_sname = $event['homeTeam']['shortName'];
         $home_insert = "INSERT INTO `equipos`(`equipoId`, `equipoNombre`, `equipoImg`, `equipoLiga`) VALUES ($home_id, '$home_name', null, $tournament_id)";
+        // Obtener y guardar la imagen del equipo local si no existe
+        $homeImgPath = "../../../../iraffle/assets/img/equipos/sf/{$home_id}.png";
+        if (!file_exists($homeImgPath)) {
+            $homeImgUrl = "https://api.sofascore.app/api/v1/team/{$home_id}/image";
+            $homeImg = file_get_contents($homeImgUrl);
+            file_put_contents($homeImgPath, $homeImg);
+        }
         mysqli_query($conn, $home_insert);
         $away_id = $event['awayTeam']['id'];
         $away_name = $event['awayTeam']['name'];
@@ -50,6 +71,13 @@ if ($apiLeague):
         $home_name = str_replace("'", "", $home_name);
         $away_name = str_replace("'", "", $away_name);
         $away_insert = "INSERT INTO `equipos`(`equipoId`, `equipoNombre`, `equipoImg`, `equipoLiga`) VALUES ($away_id, '$away_name', null, $tournament_id)";
+        // Obtener y guardar la imagen del equipo visitante si no existe
+        $awayImgPath = "../../../../iraffle/assets/img/equipos/sf/{$away_id}.png";
+        if (!file_exists($awayImgPath)) {
+            $awayImgUrl = "https://api.sofascore.app/api/v1/team/{$away_id}/image";
+            $awayImg = file_get_contents($awayImgUrl);
+            file_put_contents($awayImgPath, $awayImg);
+        }
         mysqli_query($conn, $away_insert);
         // Game Info
         $i++;
@@ -59,17 +87,25 @@ if ($apiLeague):
         // Canales por defecto por liga
         // Liga PRO [Ecuador]
         switch ($tournament_id) {
+            // LaLiga
+            case 8:
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal3`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '314')";
+            break;
+            // LaLiga2
+            case 54:
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `canal3`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '32', '29', '30')";
+            break;
             // Liga Costa Rica (FUTV)
             case 11535:
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '248')";
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '295')";
             break;
             // Primera Uruguay (VTV, VTV+)
             case 278:
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `starp`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '346', '356', '1')";
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `starp`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '180', '181', '1')";
             break;
             // Liga Guate (Canal 7)
             case 11619:
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '178')";
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '218')";
             break;
             // UCL + UEL (Star + Vix)
             case 7: case 679:
