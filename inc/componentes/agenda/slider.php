@@ -118,7 +118,7 @@
                             <div class="card">
                                 <div class="mini-league">
                                     <img width="25px"
-                                        src="https://api.codetabs.com/v1/proxy/?quest=https://api.sofascore.app/api/v1/unique-tournament/<?= $liga_id ?>/image/dark" alt="">
+                                        src="../assets/img/ligas/sf/<?= $liga_id ?>.png" alt="">
                                     <h5>
                                         <?= $liga ?>
                                     </h5>
@@ -126,13 +126,13 @@
                                 <div class="main-event">
                                     <div class="match">
                                         <div class="team">
-                                            <img src="https://api.codetabs.com/v1/proxy/?quest=https://api.sofascore.app/api/v1/team/<?= $local_id ?>/image" class="image"
+                                            <img src="../assets/img/equipos/sf/<?= $local_id ?>.png" class="image"
                                                 alt="image">
                                             <h4><?= ucfirst($local) ?></h4>
                                         </div>
                                         <h6 class="vs">vs</h6>
                                         <div class="team">
-                                            <img src="https://api.codetabs.com/v1/proxy/?quest=https://api.sofascore.app/api/v1/team/<?= $visitante_id ?>/image"
+                                            <img src="../assets/img/equipos/sf/<?= $visitante_id ?>.png"
                                                 class="image" alt="image">
                                             <h4><?= ucfirst($visitante) ?></h4>
                                         </div>
@@ -169,7 +169,7 @@
 
                                         // Find the distance between now an the count down date
                                         // GMT/UTC Adjustment at the end of the function. 0 = GMT/UTC+0; 1 = GMT/UTC+1.
-                                        var distance<?= $index ?> = countDownDate<?= $index ?> - now<?= $index ?> - (3600000 * 1);
+                                        var distance<?= $index ?> = countDownDate<?= $index ?> - now<?= $index ?> - (3600000 * 2);
 
                                         // Time calculations for days, hours, minutes and seconds
                                         var days<?= $index ?> = Math.floor(distance<?= $index ?> / (1000 * 60 * 60 * 24));
