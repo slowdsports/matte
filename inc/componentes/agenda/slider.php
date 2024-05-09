@@ -132,7 +132,7 @@
                                         </div>
                                         <h6 class="vs">vs</h6>
                                         <div class="team">
-                                            <img src="../assets/img/equipos/sf/<?= $visitante_id ?>.png"
+                                            <img src="../iraffle/assets/img/equipos/sf/<?= $visitante_id ?>.png"
                                                 class="image" alt="image">
                                             <h4><?= ucfirst($visitante) ?></h4>
                                         </div>
