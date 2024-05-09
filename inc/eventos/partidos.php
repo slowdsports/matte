@@ -127,14 +127,14 @@ $ligaNombre = $result['ligaNombre'];
                         <div class="card product-card">
                             <div class="main-event">
                                 <div class="league">
-                                    <img src="../assets/img/ligas/sf/<?= $getLiga ?>.png"
+                                    <img src="../iraffle/assets/img/ligas/sf/<?= $getLiga ?>.png"
                                         alt="League" />
                                     <!-- <p class="<?= $index ?>"><?= ucfirst($dia) ?></p> -->
                                     <p class="cntdwn-<?= $index ?>"></p>
                                 </div>
                                 <div class="match">
                                     <div class="team">
-                                        <img width="60px" src="../assets/img/equipos/sf/<?= $local_id ?>.png"
+                                        <img width="60px" src="../iraffle/assets/img/equipos/sf/<?= $local_id ?>.png"
                                             alt="" />
                                         <h4>
                                             <?= ucfirst($local) ?>
@@ -145,14 +145,14 @@ $ligaNombre = $result['ligaNombre'];
                                     </div>
                                     <div class="team">
                                         <img width="60px"
-                                            src="../assets/img/equipos/sf/<?= $visitante_id ?>.png" alt="" />
+                                            src="../iraffle/assets/img/equipos/sf/<?= $visitante_id ?>.png" alt="" />
                                         <h4>
                                             <?= ucfirst($visitante) ?>
                                         </h4>
                                     </div>
                                 </div>
                                 <div class="channel">
-                                    <img src="../assets/img/canales/<?= ($canalImg === null) ? "152x152" : $canalImg ?>.png"
+                                    <img src="../iraffle/assets/img/canales/<?= ($canalImg === null) ? "152x152" : $canalImg ?>.png"
                                         alt="" />
                                 </div>
                             </div>

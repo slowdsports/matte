@@ -118,7 +118,7 @@
                             <div class="card">
                                 <div class="mini-league">
                                     <img width="25px"
-                                        src="../assets/img/ligas/sf/<?= $liga_id ?>.png" alt="">
+                                        src="../iraffle/assets/img/ligas/sf/<?= $liga_id ?>.png" alt="">
                                     <h5>
                                         <?= $liga ?>
                                     </h5>
@@ -126,7 +126,7 @@
                                 <div class="main-event">
                                     <div class="match">
                                         <div class="team">
-                                            <img src="../assets/img/equipos/sf/<?= $local_id ?>.png" class="image"
+                                            <img src="../iraffle/assets/img/equipos/sf/<?= $local_id ?>.png" class="image"
                                                 alt="image">
                                             <h4><?= ucfirst($local) ?></h4>
                                         </div>
