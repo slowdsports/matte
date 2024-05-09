@@ -1,6 +1,6 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/megaaxmg/anceprov.best/matte/
+    - export DEPLOYPATH=/home/megaaxmg/teombley.asia/matte/
     - /bin/cp -R * $DEPLOYPATH
     #- /bin/rsync -a --exclude 'conn.php' public/ $DEPLOYPATH
