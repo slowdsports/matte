@@ -71,17 +71,17 @@
                             ?>
                             <tr id="partido-<?= $result['id'] ?>">
                                 <td class="table-user">
-                                    <img src="../iraffle/assets/img/equipos/sf/<?= $result['id_local']; ?>.png"
+                                    <img src="../../iraffle/assets/img/equipos/sf/<?= $result['id_local']; ?>.png"
                                         alt="table-user" class="me-2 rounded-circle">
                                     <?= $result['equipo_local']; ?>
                                 </td>
                                 <td class="table-user">
-                                    <img src="../iraffle/assets/img/equipos/sf/<?= $result['id_visitante']; ?>.png"
+                                    <img src="../../iraffle/assets/img/equipos/sf/<?= $result['id_visitante']; ?>.png"
                                         alt="table-user" class="me-2 rounded-circle">
                                     <?= $result['equipo_visitante']; ?>
                                 </td>
                                 <td class="table-user">
-                                    <img src="../iraffle/assets/img/ligas/sf/<?= $result['liga']; ?>.png"
+                                    <img src="../../iraffle/assets/img/ligas/sf/<?= $result['liga']; ?>.png"
                                         alt="table-user" class="me-2 rounded-circle">
                                     <?= $result['partido_liga']; ?>
                                 </td>
