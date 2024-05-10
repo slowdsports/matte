@@ -66,7 +66,7 @@ $ligaNombre = $result['ligaNombre'];
             LEFT JOIN paises p10 ON f10.pais = p10.paisId
             WHERE liga='$getLiga'
             ORDER BY fecha_hora ASC");
-            include('../inc/eventos/custom.php');
+            include('inc/eventos/custom.php');
             while ($result = mysqli_fetch_array($partidos)) {
                 // Teams
                 $local = $result['equipo_local'];
