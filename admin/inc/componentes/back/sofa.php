@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
-include('../../../../../inc/conn.php');
+include('../../../../inc/conn.php');
 if (!isset($_POST['filtrarLiga'])) {
     $apiLeague = $_GET['filtrarLiga'];
 } else {
