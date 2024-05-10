@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
-include('../../../../inc/conn.php');
+include('../../../../../inc/conn.php');
 if (!isset($_POST['filtrarLiga'])) {
     $apiLeague = $_GET['filtrarLiga'];
 } else {
@@ -45,7 +45,7 @@ if ($apiLeague):
         // Volcado base de datos
         $tournament_insert = "INSERT INTO `ligas`(`ligaId`, `ligaNombre`, `ligaImg`, `ligaPais`, `season`) VALUES ($tournament_id, '$tournament_name', '$tournament_sname', '$country', '$seasonId')";
         // Obtener y guardar la imagen de la liga si no existe
-        $ligaImgPath = "../../../../iraffle/assets/img/ligas/sf/{$tournament_id}.png";
+        $ligaImgPath = "../../../../../iraffle/assets/img/ligas/sf/{$tournament_id}.png";
         if (!file_exists($ligaImgPath)) {
             $ligaImgUrl = "https://api.sofascore.app/api/v1/unique-tournament/{$tournament_id}/image/dark";
             $ligaImg = file_get_contents($ligaImgUrl);
@@ -58,7 +58,7 @@ if ($apiLeague):
         $home_sname = $event['homeTeam']['shortName'];
         $home_insert = "INSERT INTO `equipos`(`equipoId`, `equipoNombre`, `equipoImg`, `equipoLiga`) VALUES ($home_id, '$home_name', null, $tournament_id)";
         // Obtener y guardar la imagen del equipo local si no existe
-        $homeImgPath = "../../../../iraffle/assets/img/equipos/sf/{$home_id}.png";
+        $homeImgPath = "../../../../../iraffle/assets/img/equipos/sf/{$home_id}.png";
         if (!file_exists($homeImgPath)) {
             $homeImgUrl = "https://api.sofascore.app/api/v1/team/{$home_id}/image";
             $homeImg = file_get_contents($homeImgUrl);
@@ -72,7 +72,7 @@ if ($apiLeague):
         $away_name = str_replace("'", "", $away_name);
         $away_insert = "INSERT INTO `equipos`(`equipoId`, `equipoNombre`, `equipoImg`, `equipoLiga`) VALUES ($away_id, '$away_name', null, $tournament_id)";
         // Obtener y guardar la imagen del equipo visitante si no existe
-        $awayImgPath = "../../../../iraffle/assets/img/equipos/sf/{$away_id}.png";
+        $awayImgPath = "../../../../../iraffle/assets/img/equipos/sf/{$away_id}.png";
         if (!file_exists($awayImgPath)) {
             $awayImgUrl = "https://api.sofascore.app/api/v1/team/{$away_id}/image";
             $awayImg = file_get_contents($awayImgUrl);
